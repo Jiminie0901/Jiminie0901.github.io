@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh_Hant_tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <title>Jean's Personal Resume</title>
+</head>
+<body>
+    <div class="startscreen text-center">
+        <h1 class="caption"><span>Jean's Personal Resume</span></h1>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom" style="background-color: rgba(78, 59, 52, 0.8);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">陳盈均的個人簡歷</a>
+            <div class="collapse navbar-collapse" id="navbarText"></div>
+                <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#aboutme">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ach_exp" onclick="openT('aelist')">Achievement & Experiences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education" onclick="openT('timelineEdu')">Educational Background</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" onclick="openT('flip-card')">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#languages" onclick="openT('langbar')">Languages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hobbies" onclick="openT('hobbyitem')">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts" onclick="openT('contactinfo')">Contacts</a></li>
+                </ul>
+        </div>
+    </nav>
+    <script>
+        function openT(id) { 
+            var x = document.getElementById(id);
+            if(x.classList.contains('show')) {
+                x.classList.remove('show');
+            }
+            else {
+                x.classList.add('show');
+            }
+
+        } 
+    </script>
+
+    
+    <div class="container-fluid mycontent">
+        <div class="row no-gutters">
+            <div class="col-4">
+                <div class="container leftbox">
+                    <div class="container myrow1 text-center">
+                        <img src="b_ornament_149_0M.png" style="max-width: 26vw; margin-top: 2vw; margin-bottom: 1.5vw;" >
+                        <h1 class="text-center" id="aboutme" style="color:#FEFEFD;">About Me</h1>
+                        <img id="profilepic" src="profile_pic-1.jpg">
+                        <ul class="starlist text-left">
+                            <li>Name: 陳盈均 / Ing-Jyun Chen / Jean</li>
+                            <li>Birthday: 2001.Nov.14</li>
+                            <li>Traits: introverted, calm, observant, open to new things</li>
+                        </ul>
+                    </div>  
+                    <div class="container">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn mytitle" id="hobbies" href="#hobbies" onclick="openT('hobbyitem')" role="button" style="margin-bottom: 1rem;">
+                                Hobbies
+                            </a>
+                        </div> 
+        
+                        <div class="collapse" id="hobbyitem">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btnicons" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Listening to Music" data-bs-content="Indie, Ballad, Postrock, Pop">
+                                    <img src="headphones.png" alt="headphones_icon" class="icons" id="headphones">
+                                </button>
+                                <button type="button" class="btnicons" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Watching Videos" data-bs-content="Anime, Films, Series">
+                                    <img src="video.png" alt="video_icon" class="icons" id="video">
+                                </button>
+                                <button type="button" class="btnicons" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Reading" data-bs-content="Novels, Philosophy, Poems">
+                                    <img src="open-book.png" alt="book_icon" class="icons" id="book">
+                                </button>
+                                <button type="button" class="btnicons" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Taking a Stroll" data-bs-content="It's relaxing and calming">
+                                    <img src="footprint.png" alt="footprint_icon" class="icons" id="footprint">
+                                </button>
+                                <button type="button" class="btnicons" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Drinking Hot Chocolate" data-bs-content="Hot chocolate is my favorite of all time!">
+                                    <img src="hot-chocolate.png" alt="hot-chocolate_icon" class="icons" id="hotchoco">
+                                </button>
+                            </div>
+                        </div>
+                        <script>
+                            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+                            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                              return new bootstrap.Popover(popoverTriggerEl)
+                            })
+                            </script>
+                    </div>
+
+                    <div class="container  myrow3 text-center">
+                        <a class="btn mytitle" id="contacts" href="#contacts" onclick ="openT('contactinfo')" role="button" style="margin-bottom: 1rem;">
+                            Contacts
+                        </a>
+                        <div class="collapse" id="contactinfo">
+                            <h6>Email: jeanchen404@gmail.com</h6>
+                            <div class="d-felx">
+                                <a href="https://www.facebook.com/jeanc1013/" target="_blank">
+                                    <img class="img-con" src="Icon_Facebook.png" alt="Jean's Facebook">
+                                </a>
+                                <a href="https://www.instagram.com/ing_jean_chen/" target="_blank">
+                                    <img class="img-con" src="Instagram_circle.png" alt="Jean's Instagram">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="container myrow1" style="padding-left: 15%;">
+                    <div class="d-flex justify-content-center">
+                        <a class="btn mytitle" id="ach_exp" href="#ach_exp" role="button" aria-expanded="false" aria-controls="aelist" onclick="openT('aelist')" style="margin-top: 3rem; margin-left: -2.3rem; margin-bottom: 0.5rem;">
+                            Achievements and Experiences
+                        </a>
+                    </div>
+                    <div class="collapse" id="aelist">
+                        <ul class="achvList">
+                            <li>Now - Member of Cake Club</li>
+                            <li>Now - 修習金融科技跨域學程中</li>
+                            <li>2021 - Participated in Hult Prize</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container myrow2"> 
+                    <div class="d-flex justify-content-center">
+                        <a class="btn mytitle" id="education" href="#education" role="button" aria-expanded="false" aria-controls="timelineEdu" onclick="openT('timelineEdu')" style="margin-bottom: 1rem;">
+                            Educational Background
+                        </a>
+                    </div>  
+                    <div class="collapse" id="timelineEdu">
+                        <div class="timeline" style="margin-left: 1rem;">
+                            <div class="container-t left">
+                                <div id="nycu-overlay" onclick="off('nycu-overlay')">
+                                    <img class="img-for-overlay" src="nycu.jpg">
+                                </div>
+                                <button class="content" onclick="on('nycu-overlay')">
+                                    <h3>Current</h3>
+                                    <h5>陽明交通大學 資財系 在學</h5>
+                                </button>
+                            </div>
+                            <div class="container-t right">
+                                <div id="zsgh-overlay" onclick="off('zsgh-overlay')">
+                                    <img class="img-for-overlay" src="cheng.jpg">
+                                </div>
+                                <button class="content" onclick="on('zsgh-overlay')">
+                                    <h3>2020</h3>
+                                    <h5>市立中山女高</h5>
+                                </button>
+                            </div>
+                            <div class="container-t left">
+                                <div id="lkjh-overlay" onclick="off('lkjh-overlay')">
+                                    <img class="img-for-overlay" src="lkjh_orchestra.jpg">
+                                </div>
+                                <button class="content" onclick="on('lkjh-overlay')">
+                                    <h3>2017</h3>
+                                    <h5>林口國民中學</h5>
+                                </button>
+                            </div>
+                            <div class="container-t right">
+                                <div id="cgps-overlay" onclick="off('cgps-overlay')">
+                                    <img class="img-for-overlay" src="cgps.png">
+                                </div>
+                                <button class="content" onclick="on('cgps-overlay')">
+                                    <h3>2014</h3>
+                                    <h5>長庚國民小學</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function on(id) {
+                            var x = document.getElementById(id).value;
+                            document.getElementById(id).style.display = "block";
+                        }
+                        function off(id) {
+                            var x = document.getElementById(id).value;
+                            document.getElementById(id).style.display = "none";
+                        }
+                    </script>
+                </div>
+                <div class="row">
+                    <div class="col-6 myrow3">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn mytitle" id="skills" href="#skills" role="button" aria-expanded="false" aria-controls="flip-card" onclick="openT('flip-card')" style="margin-left:1rem;">
+                                Skills
+                            </a>
+                        </div>
+                        <h1  class="text-center" style="margin-bottom: 2rem; margin-left: 1.2rem;"></h1>
+                        <div class="collapse" id="flip-card">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <h5>Programming</h5>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h5>C++, Python</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <h5>Critical Thinking</h5>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h5>Essential to problem solving</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <h5>Active Listening</h5>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h5>Effective communication</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 myrow3">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn mytitle" id="languages" href="#languages" role="button" aria-expanded="false" aria-controls="langbar" onclick="openT('langbar')" style="margin-left:1rem; margin-bottom: 2.1rem;">
+                                Languages
+                            </a>
+                        </div>
+                        <div class="collapse" id="langbar">
+                            <div class="langbar" id="chbar">
+                                <h5>中文 - Advanced <span class="langspan">母語</span></h5>
+                            </div>
+                            <div class="langbar" id="engbar">
+                                <h5>英文 - Advanced <span class="langspan">TOEIC 960 & 全民英檢中高級</span></h5>
+                            </div>
+                            <div class="langbar" id="frbar">
+                                <h5>法文 - Beginner <span class="langspan">學習中!</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 4.5rem; background-color: #F8F7F5;"></div>
+</body>
+</html>
+
